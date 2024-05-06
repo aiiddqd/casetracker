@@ -57,9 +57,9 @@ services:
     environment:
       ADMINER_DEFAULT_DB_HOST: dbmsql:3306
       ADMINER_DEFAULT_DB_NAME: ${MYSQL_DB_NAME}
-    volumes:
-      - ./data:/app
-      - ./docker/adminer/login-password-less.php:/var/www/html/plugins-enabled/login-password-less.php
+    # volumes:
+      # - ./data:/app
+      # - ./docker/adminer/login-password-less.php:/var/www/html/plugins-enabled/login-password-less.php
 
 
   # docker compose up -d --no-deps --build dbmsql
