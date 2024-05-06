@@ -2,10 +2,10 @@ services:
 
 
   # https://github.com/filamentphp/demo
-  # http://127.0.0.1:8002
-  # docker compose exec fd sh
-  # docker compose up -d --no-deps --build fd
-  fd:
+  # http://127.0.0.1:8080
+  # docker compose exec app sh
+  # docker compose up -d --no-deps --build app
+  app:
     build:
       context: .
       dockerfile: ./docker/php82.Dockerfile
@@ -14,16 +14,16 @@ services:
     # networks:
     #   - internal
     ports:
-      - "127.0.0.1:8002:80"
+      - "127.0.0.1:8080:80"
     environment:
-      APP_URL: http://localhost:8001/
+      APP_URL: http://localhost:8080/
       DB_CONNECTION: mysql
       DB_HOST: dbmsql
-      DB_NAME: filament-demo
-      DB_USER: filament-demo
-      DB_PASSWORD: filament-demo
+      DB_NAME: ${MYSQL_DB_NAME}
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - ./:/app
+      - ./app/:/app
 
 
   # cli tools
@@ -77,20 +77,6 @@ services:
       - ./data/dbmsql:/var/lib/mysql
 
 
-  # docker compose up -d --no-deps --build dbmsql5
-  dbmsql5:
-    image: mysql:5.7
-    platform: linux/x86_64
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: ${MYSQL_DB_NAME}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    volumes:
-      - ./data/dbmsql5:/var/lib/mysql
-
-
   # docker compose up -d --no-deps --build dbpsql
   # http://127.0.0.1:8000/?pgsql=dbpsql&username=local
   dbpsql:
@@ -108,52 +94,9 @@ services:
       POSTGRES_PASSWORD: local
       PGDATA: "/var/lib/postgresql/data/pgdata"
 
+  # docker compose up -d --no-deps --build redis
   redis:
     image: redis
-    container_name: cache
     expose:
       - 6379
 
-
-# networks:
-  # internal:
-    # driver: bridge
-  # default:
-    # external: true
-    # name: scoobydoo
-
-
-
-  # # http://127.0.0.1:8003
-  # # docker compose up -d --no-deps --build wp
-  # wp:
-  #   image: wordpress
-  #   depends_on:
-  #     - dbmsql
-  #   # networks:
-  #   #   - internal
-  #   ports:
-  #     - "8003:80"
-  #   environment:
-  #     WORDPRESS_DB_HOST: dbmsql:3306
-  #     WORDPRESS_DB_NAME: ${MYSQL_DB_NAME}
-  #     WORDPRESS_DB_USER: ${MYSQL_USER}
-  #     WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
-  #   volumes:
-  #     - ./wp:/var/www/html/wp-content
-
-
-  # http://127.0.0.1:81
-  # doc https://nginxproxymanager.com/ 
-  # docker compose exec app bash
-  # docker compose up -d --no-deps --build app
-  # app:
-  #   image: jc21/nginx-proxy-manager:latest
-  #   restart: unless-stopped
-  #   ports:
-  #     # - '80:80'
-  #     - '81:81'
-  #     - '443:443'
-  #   volumes:
-  #     - ./data/proxy:/data
-  #     - ./letsencrypt:/etc/letsencrypt
