@@ -18,7 +18,7 @@ services:
     environment:
       APP_URL: http://localhost:8080/
       DB_CONNECTION: mysql
-      DB_HOST: dbmsql
+      DB_HOST: dbmsql:3306
       DB_NAME: ${MYSQL_DB_NAME}
       DB_USER: ${MYSQL_USER}
       DB_PASSWORD: ${MYSQL_PASSWORD}
