@@ -37,7 +37,6 @@ class OperationResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -59,7 +58,6 @@ class OperationResource extends Resource
         return [
             'index' => Pages\ListOperations::route('/'),
             'create' => Pages\CreateOperation::route('/create'),
-            'view' => Pages\ViewOperation::route('/{record}'),
             'edit' => Pages\EditOperation::route('/{record}/edit'),
         ];
     }
