@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Model;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // doc https://filamentphp.com/docs/3.x/panels/getting-started#unguarding-all-models
+        Model::unguard();
+
     }
 }
