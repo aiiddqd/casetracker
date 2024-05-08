@@ -1,8 +1,6 @@
 services:
 
-
-  # https://github.com/filamentphp/demo
-  # http://127.0.0.1:8080
+  # http://localhost:8080/
   # docker compose exec app sh
   # docker compose up -d --no-deps --build app
   app:
@@ -11,10 +9,9 @@ services:
       dockerfile: ./docker/php82.Dockerfile
     depends_on:
       - dbmsql
-    # networks:
-    #   - internal
     ports:
-      - "127.0.0.1:8080:80"
+      - "8080:8000"
+    command: php artisan serve --host 0.0.0.0
     environment:
       APP_URL: http://localhost:8080/
       DB_CONNECTION: mysql
@@ -22,6 +19,7 @@ services:
       DB_NAME: ${MYSQL_DB_NAME}
       DB_USER: ${MYSQL_USER}
       DB_PASSWORD: ${MYSQL_PASSWORD}
+    working_dir: /app
     volumes:
       - ./app/:/app
 
