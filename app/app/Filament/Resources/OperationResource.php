@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CaseResource\Pages;
-use App\Filament\Resources\CaseResource\RelationManagers;
-use App\Models\Case;
+use App\Filament\Resources\OperationResource\Pages;
+use App\Filament\Resources\OperationResource\RelationManagers;
+use App\Models\Operation;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CaseResource extends Resource
+class OperationResource extends Resource
 {
-    protected static ?string $model = Case::class;
+    protected static ?string $model = Operation::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -37,6 +37,7 @@ class CaseResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -56,9 +57,10 @@ class CaseResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCases::route('/'),
-            'create' => Pages\CreateCase::route('/create'),
-            'edit' => Pages\EditCase::route('/{record}/edit'),
+            'index' => Pages\ListOperations::route('/'),
+            'create' => Pages\CreateOperation::route('/create'),
+            'view' => Pages\ViewOperation::route('/{record}'),
+            'edit' => Pages\EditOperation::route('/{record}/edit'),
         ];
     }
 }
