@@ -25,6 +25,7 @@ class AppPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('app')
+            ->spa()
             ->path('')
             ->login()
             ->colors([
