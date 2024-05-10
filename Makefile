@@ -20,3 +20,4 @@ clear-view-cache:
 reset-cache:
 	docker compose exec app php artisan filament:clear-cached-components
 	docker compose exec app php artisan view:clear
+	docker compose exec app php artisan config:cache
