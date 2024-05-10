@@ -37,6 +37,7 @@ class AppPanelProvider extends PanelProvider
                 Pages\Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Widgets'), for: 'App\\Widgets')
+            ->discoverClusters(in: app_path('Clusters'), for: 'App\\Clusters')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
