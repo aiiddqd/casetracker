@@ -8,6 +8,10 @@ use Filament\Pages\Page;
 
 class GeneralSettings extends Page
 {
+    protected static ?string $title = 'Overview';
+
+    protected ?string $heading = 'Settings';
+
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     // protected static ?string $cluster = SettingsCluster::class;
