@@ -28,6 +28,7 @@ class AppPanelProvider extends PanelProvider
             ->spa()
             ->path('')
             ->login()
+            ->sidebarFullyCollapsibleOnDesktop()
             ->colors([
                 'primary' => Color::Amber,
             ])
