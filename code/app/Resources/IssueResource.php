@@ -24,6 +24,7 @@ class IssueResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    /*
     public static function infolist(Infolist $infolist) : Infolist
     {
         // $list = \Eventy::addFilter('issue.view.infolist', [
@@ -45,7 +46,7 @@ class IssueResource extends Resource
                 // Infolists\Components\View::make('issue-after-description' ),
             ]);
     }
-
+*/
 
 
     public static function form(Form $form) : Form
@@ -70,9 +71,9 @@ class IssueResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')->searchable()->numeric(),
+                Tables\Columns\TextColumn::make('id')->numeric(),
                 Tables\Columns\TextColumn::make('title')->searchable(),
-                Tables\Columns\TextColumn::make('group'),
+                // Tables\Columns\TextColumn::make('group'),
             ])
             ->filters([
                 //
@@ -99,9 +100,9 @@ class IssueResource extends Resource
     {
         return [
             'index' => Pages\ListIssues::route('/'),
-            'view' => Pages\ViewIssue::route('/{record}'),
             'create' => Pages\CreateIssue::route('/create'),
             'edit' => Pages\EditIssue::route('/{record}/edit'),
+            'view' => Pages\ViewIssue::route('/{record}'),
         ];
     }
 }

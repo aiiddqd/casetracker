@@ -2,6 +2,8 @@
 Task Tracking and Project Managment, BPM, ACM
 https://github.com/uptimizt/casetracker
 
+![collage](docs/files/collage.jpg)
+
 # Core Concepts
 - inspired by GitHub Issues Tracker, Notion Tables, Jira and FreeScout
 - Use Adaptive Case Managment as key ideas

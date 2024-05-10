@@ -23,31 +23,6 @@ services:
     volumes:
       - ./code/:/app
 
-  # http://localhost:8081/
-  # http://localhost:8081/lunar
-  # docker compose exec lunar sh
-  # docker compose up -d --no-deps --build lunar
-  lunar:
-    build:
-      context: .
-      dockerfile: ./docker/php82.Dockerfile
-    depends_on:
-      - dbmsql
-    ports:
-      - "8081:8000"
-    command: php artisan serve --host 0.0.0.0
-    environment:
-      APP_URL: http://localhost:8081/
-      DB_CONNECTION: mysql
-      DB_HOST: dbmsql:3306
-      DB_NAME: lunar
-      DB_USER: root
-      DB_PASSWORD: root
-    working_dir: /app
-    volumes:
-      - ./lunar/:/app
-
-
   # cli tools
   #
   # docker compose exec cli bash
@@ -97,24 +72,6 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - ./data/dbmsql:/var/lib/mysql
-
-
-  # docker compose up -d --no-deps --build dbpsql
-  # http://127.0.0.1:8000/?pgsql=dbpsql&username=local
-  dbpsql:
-    image: postgres
-    restart: unless-stopped
-    # set shared memory limit when using docker-compose
-    shm_size: 128mb
-    # or set shared memory limit when deploy via swarm stack
-    volumes:
-      # - ../2. Init Database:/docker-entrypoint-initdb.d
-      - ./data/dbpsql:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: local
-      POSTGRES_USER: local
-      POSTGRES_PASSWORD: local
-      PGDATA: "/var/lib/postgresql/data/pgdata"
 
   # docker compose up -d --no-deps --build redis
   redis:
