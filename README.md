@@ -1,4 +1,6 @@
 # CaseTracker
+Task Tracking and Project Managment, BPM, ACM
+https://github.com/uptimizt/casetracker
 
 # Core Concepts
 - inspired by GitHub Issues Tracker, Notion Tables, Jira and FreeScout
@@ -9,25 +11,6 @@
 
 https://github.com/uptimizt/casetracker
 
-# Pages 
 
-https://filamentphp.com/docs/3.x/panels/pages 
-
-# Commands 
-
-
-```
-php artisan migrate
-```
-
-
-
-// Caching Blade Icons
-```
-php artisan icons:cache
-```
-
-
-```
-php artisan filament:assets
-```
+# Docs
+- Filament PHP https://filamentphp.com/docs
