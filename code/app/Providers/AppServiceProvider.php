@@ -24,8 +24,11 @@ class AppServiceProvider extends ServiceProvider
         // doc https://filamentphp.com/docs/3.x/panels/getting-started#unguarding-all-models
         Model::unguard();
 
-        $files = glob(__DIR__ . '/../../plugins/*.php');
-        foreach ($files as $file) {
+        foreach (glob(__DIR__ . '/../../plugins/*.php') as $root_file) {
+            require_once $file;
+        }
+
+        foreach (glob(__DIR__ . '/../../plugins/*/main.php') as $plugin_file) {
             require_once $file;
         }
 
