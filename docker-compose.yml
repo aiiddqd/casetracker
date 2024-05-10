@@ -21,7 +21,7 @@ services:
       DB_PASSWORD: ${MYSQL_PASSWORD}
     working_dir: /app
     volumes:
-      - ./app/:/app
+      - ./code/:/app
 
 
   # cli tools
