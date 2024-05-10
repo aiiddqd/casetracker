@@ -1,8 +1,11 @@
-# casetracker
+# CaseTracker
 
-# Concepts
-- GitHub Issues Tracker, Jira and FreeScout
-- Use Adaptive Case Managment ideas
+# Core Concepts
+- inspired by GitHub Issues Tracker, Notion Tables, Jira and FreeScout
+- Use Adaptive Case Managment as key ideas
+- Plartform - Filament and TALL-stack
+- Modular and event driven architecture
+- Open Source
 
 https://github.com/uptimizt/casetracker
 
