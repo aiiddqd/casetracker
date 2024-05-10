@@ -1,6 +1,6 @@
 # CaseTracker
 Task Tracking and Project Managment, BPM, ACM
-https://github.com/uptimizt/casetracker
+https://github.com/aiiddqd/casetracker
 
 ![collage](docs/files/collage.jpg)
 
@@ -11,7 +11,7 @@ https://github.com/uptimizt/casetracker
 - Modular and event driven architecture
 - Open Source
 
-https://github.com/uptimizt/casetracker
+https://github.com/aiiddqd/casetracker
 
 # Plugins and events
 - Eventy https://github.com/tormjens/eventy
