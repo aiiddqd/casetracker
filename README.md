@@ -13,3 +13,8 @@ https://filamentphp.com/docs/3.x/panels/pages
 php artisan icons:cache
 ```
 
+
+```
+php artisan filament:assets
+```
+
