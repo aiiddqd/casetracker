@@ -24,6 +24,15 @@ class AppServiceProvider extends ServiceProvider
         // doc https://filamentphp.com/docs/3.x/panels/getting-started#unguarding-all-models
         Model::unguard();
 
+        $this->load_plugins();
+
+    }
+
+    /**
+     * Load plugins and use Eventy::action
+     */
+    public function load_plugins(){
+
         foreach (glob(__DIR__ . '/../../plugins/*.php') as $root_file) {
             require_once $root_file;
         }
@@ -33,7 +42,5 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Eventy::action('plugins_loaded');
-
-
     }
 }
