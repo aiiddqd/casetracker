@@ -5,6 +5,7 @@ namespace App\Resources;
 use App\Resources\IssueResource\Pages;
 use App\Resources\IssueResource\RelationManagers;
 use App\Models\Issue;
+use Event;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,12 +13,39 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Infolists;
+use Filament\Infolists\Infolist;
+use TorMorten\Eventy\Facades\Eventy;
+
 
 class IssueResource extends Resource
 {
     protected static ?string $model = Issue::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function infolist(Infolist $infolist) : Infolist
+    {
+        // $list = \Eventy::addFilter('issue.view.infolist', [
+        //     Infolists\Components\TextEntry::make('title'),
+        //     Infolists\Components\TextEntry::make('description')
+        //         ->columnSpanFull(),
+        // ] );
+        return $infolist
+            ->schema([
+                // Infolists\Components\TextEntry::make('title'),
+                // Infolists\Components\TextEntry::make('description')
+                // ->columnSpanFull(),
+                Infolists\Components\TextEntry::make('description')
+                    ->prose()
+                    ->columnSpanFull()
+                    ->markdown()
+                    ->hiddenLabel(),
+                // Eventy::action('issue.view.infolist' ),
+            ]);
+    }
+
+
 
     public static function form(Form $form) : Form
     {

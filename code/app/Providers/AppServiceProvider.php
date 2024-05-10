@@ -25,14 +25,14 @@ class AppServiceProvider extends ServiceProvider
         Model::unguard();
 
         foreach (glob(__DIR__ . '/../../plugins/*.php') as $root_file) {
-            require_once $file;
+            require_once $root_file;
         }
 
-        foreach (glob(__DIR__ . '/../../plugins/*/main.php') as $plugin_file) {
-            require_once $file;
+        foreach (glob(__DIR__ . '/../../plugins/*/main.php') as $root_file) {
+            require_once $root_file;
         }
 
-        Eventy::action('plugins_loaded', $files);
+        Eventy::action('plugins_loaded');
 
 
     }
