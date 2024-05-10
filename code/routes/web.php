@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Use default Filament routes
 // Route::get('/', function () {
     // return view('welcome');
 // });

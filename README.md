@@ -1,5 +1,9 @@
 # casetracker
 
+# Concepts
+- GitHub Issues Tracker, Jira and FreeScout
+- Use Adaptive Case Managment ideas
+
 https://github.com/uptimizt/casetracker
 
 # Pages 

@@ -25,20 +25,25 @@ class IssueResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
+                    ->columnSpan('full')
                     ->maxLength(255),
-                Forms\Components\RichEditor::make('description')
+                Forms\Components\MarkdownEditor::make('description')
+                    ->columnSpan('full')
                     ->required(),
                 Forms\Components\Select::make('group_id')
                     ->relationship('group', 'name')
 
-            ]);
+            ])
+            ->columns(2);
     }
 
     public static function table(Table $table) : Table
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('group'),
+
             ])
             ->filters([
                 //
