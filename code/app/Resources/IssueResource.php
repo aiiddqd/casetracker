@@ -100,9 +100,9 @@ class IssueResource extends Resource
     {
         return [
             'index' => Pages\ListIssues::route('/'),
-            'view' => Pages\ViewIssue::route('/{record}'),
             'create' => Pages\CreateIssue::route('/create'),
             'edit' => Pages\EditIssue::route('/{record}/edit'),
+            'view' => Pages\ViewIssue::route('/{record}'),
         ];
     }
 }
