@@ -41,7 +41,8 @@ class IssueResource extends Resource
                     ->columnSpanFull()
                     ->markdown()
                     ->hiddenLabel(),
-                // Eventy::action('issue.view.infolist' ),
+                // Infolists\Components\View::make('issue-single' ),
+                // Infolists\Components\View::make('issue-after-description' ),
             ]);
     }
 

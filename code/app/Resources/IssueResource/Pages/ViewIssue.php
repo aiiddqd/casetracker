@@ -22,8 +22,6 @@ class ViewIssue extends ViewRecord
         return $this->record->title;
     }
 
-    // public static function infol
-
 
     protected function getHeaderActions(): array
     {
