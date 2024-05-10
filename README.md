@@ -11,6 +11,9 @@ https://github.com/uptimizt/casetracker
 
 https://github.com/uptimizt/casetracker
 
+# Plugins and events
+- Eventy https://github.com/tormjens/eventy
+- Example https://github.com/freescout-helpdesk/freescout/
 
 # Docs
 - Filament PHP https://filamentphp.com/docs
