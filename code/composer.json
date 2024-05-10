@@ -1,5 +1,6 @@
 {
-    "name": "laravel/laravel",
+    "name": "case-tracker/core",
+    "version": "0.1.0-alfa2405-1",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
