@@ -72,7 +72,7 @@ class IssueResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')->searchable()->numeric(),
                 Tables\Columns\TextColumn::make('title')->searchable(),
-                Tables\Columns\TextColumn::make('group'),
+                // Tables\Columns\TextColumn::make('group'),
             ])
             ->filters([
                 //
