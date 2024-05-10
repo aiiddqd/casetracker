@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Resources;
 
-use App\Filament\Resources\GroupResource\Pages;
-use App\Filament\Resources\GroupResource\RelationManagers;
+use App\Resources\GroupResource\Pages;
+// use App\Resources\GroupResource\RelationManagers;
 use App\Models\Group;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -20,11 +20,18 @@ class GroupResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?int $navigationSort = 10;
+
+
+
     public static function form(Form $form) : Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('code')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('type')
@@ -37,6 +44,8 @@ class GroupResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('code')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('type'),
 
