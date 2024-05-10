@@ -49,6 +49,7 @@ class IssueResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -69,6 +70,7 @@ class IssueResource extends Resource
     {
         return [
             'index' => Pages\ListIssues::route('/'),
+            'view' => Pages\ViewIssue::route('/{record}'),
             'create' => Pages\CreateIssue::route('/create'),
             'edit' => Pages\EditIssue::route('/{record}/edit'),
         ];
