@@ -5,6 +5,7 @@ namespace App\Resources;
 use App\Resources\IssueResource\Pages;
 use App\Resources\IssueResource\RelationManagers;
 use App\Models\Issue;
+use Event;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,12 +13,40 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Infolists;
+use Filament\Infolists\Infolist;
+use TorMorten\Eventy\Facades\Eventy;
+
 
 class IssueResource extends Resource
 {
     protected static ?string $model = Issue::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function infolist(Infolist $infolist) : Infolist
+    {
+        // $list = \Eventy::addFilter('issue.view.infolist', [
+        //     Infolists\Components\TextEntry::make('title'),
+        //     Infolists\Components\TextEntry::make('description')
+        //         ->columnSpanFull(),
+        // ] );
+        return $infolist
+            ->schema([
+                // Infolists\Components\TextEntry::make('title'),
+                // Infolists\Components\TextEntry::make('description')
+                // ->columnSpanFull(),
+                Infolists\Components\TextEntry::make('description')
+                    ->prose()
+                    ->columnSpanFull()
+                    ->markdown()
+                    ->hiddenLabel(),
+                // Infolists\Components\View::make('issue-single' ),
+                // Infolists\Components\View::make('issue-after-description' ),
+            ]);
+    }
+
+
 
     public static function form(Form $form) : Form
     {
@@ -41,9 +70,9 @@ class IssueResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('id')->searchable()->numeric(),
+                Tables\Columns\TextColumn::make('title')->searchable(),
                 Tables\Columns\TextColumn::make('group'),
-
             ])
             ->filters([
                 //

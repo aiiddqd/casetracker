@@ -169,6 +169,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\AppPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // 'TorMorten\Eventy\EventServiceProvider',
+        // 'TorMorten\Eventy\EventBladeServiceProvider',
+
     ])->toArray(),
 
     /*
@@ -183,6 +186,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Eventy' => TorMorten\Eventy\Facades\Events::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
