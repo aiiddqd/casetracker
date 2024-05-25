@@ -58,8 +58,7 @@ class IssueResource extends Resource
                     ->columnSpan('full')
                     ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('description')
-                    ->columnSpan('full')
-                    ->required(),
+                    ->columnSpan('full'),
                 Forms\Components\Select::make('group_id')
                     ->relationship('group', 'name')
 
