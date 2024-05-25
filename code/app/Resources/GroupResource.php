@@ -18,7 +18,7 @@ class GroupResource extends Resource
     protected static ?string $model = Group::class;
     protected static ?array $types = ['project', 'process', 'misc'];
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-group';
 
     protected static ?int $navigationSort = 10;
 

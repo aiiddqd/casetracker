@@ -4,6 +4,8 @@ https://github.com/aiiddqd/casetracker
 
 ![collage](docs/files/collage.jpg)
 
+![collage](docs/files/collage.jpg)
+
 # Core Concepts
 - inspired by GitHub Issues Tracker, Notion Tables, Jira and FreeScout
 - Use Adaptive Case Managment as key ideas
